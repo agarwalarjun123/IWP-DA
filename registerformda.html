@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+span{
+	color:red;
+}
+</style>	
+</head>
+<body>
+<h3>Registration Form</h3>
+<h4 style="background-color:lightblue;">Profile information</h4>
+<form action="http://google.com" onsubmit="return validate()">
+<div style="background-color:lightgrey;">
+<table style="position:absolute;right:260px;">
+<tr><td><label>E-Mail id</label><span>*</span></td> <td><input type="email"  ></td>  </tr>
+<tr><td><label>Confirm E-Mail id</label><span>*</span></td> <td><input type="email"  ></td>  </tr>
+<tr><td><label>Username</label><span>*</span></td> <td><input type="text" id="u1"  ></td>  </tr>
+
+<tr><td><label>Password</label><span>*</span></td> <td><input type="password" id="p1" ></td>  </tr>
+<tr><td><label>Confirm Password</label><span>*</span></td> <td><input type="password" id="p2" ></td>  </tr>
+
+</table>
+
+
+<table>
+<tr><td><label>Surname:</label><span>*</span></td> <td><input type="text" id="s1" ></td>  </tr>
+<tr><td><label>First Name</label><span>*</span></td> <td><input type="text" id="f1" ></td>  </tr>
+<tr><td><label>Registration Number</label><span>*</span></td> <td><input type="text" id="r1"  ></td>  </tr>
+<tr><td><label>DOB</label><span>*</span></td> <td><input type="date" id='b1'  ></td>  </tr>
+
+<tr><td><label>Mobile No: +91</label><span>*</span></td> <td><input type="text" id='m1'  ></td>  </tr>
+<tr><td><label>Confirm Mobile No: +91</label><span>*</span></td> <td><input type="text" id='m2' ></td>  </tr>
+
+</table>
+</div>
+<h4 style="background-color:lightblue;"> Company Information</h4>
+<table style="position:absolute;right:230px;">
+<tr><td><label>Company Address</label></td><td rowspan="2" ><textarea cols=20 rows=3>
+</textarea>
+</td>
+</tr>
+</table>
+<div style="background-color: lightgrey;">
+<table>
+<tr><td><label>Company Name</label><span>*</span></td><td colspan=2><input type="text" size=40px> </td> </tr>
+<tr><td><label>Company Phone</label><span>*</span></td><td><input type="text" id="c1" size=10px></td><td><input type="text"></td></tr>
+</table>
+</div>
+<br><br>
+<input type="Submit" value="Register">
+<input type="reset" value="Clear">
+
+
+
+
+</form>
+<script>
+function validate(){
+var  regno=document.getElementById("r1").value;
+var mobno=document.getElementById('m1').value;
+var patt=/[a-z]|[A-Z]/;
+var patt1=/[0-9]/;
+var passpatt=/[^0-9]|[^A-Z]|[^a-z]|[^\W]/g;
+if(patt.test(regno[0])||(patt.test(regno[1]))||(patt1.test(regno[2]))||(patt1.test(regno[3]))||(patt1.test(regno[4]))
+||(patt.test(regno[5]))||(patt.test(regno[6]))||(patt.test(regno[6]))||(patt.test(regno[7]))||(patt.test(regno[8]))
+&& regno.length!=9)
+return false;
+var pass=document.getElementById("p1").value;
+var username=document.getElementById("u1").value;
+if(patt1.test(username))
+return false;
+var mobile=document.getElementById("m1").value;
+if(mobile.length!=10 &&(patt.test(mobile) ))
+return false;
+if(!((/[A-Z]/).test(pass)&&(/[a-z]/).test(pass)&& (/[0-9]/).test(pass)&&(/[\W]/).test(pass)))
+	return false;
+if(mobno.length!=10)
+	return false;
+
+
+return true;
+
+}
+</script>
+</body>
+</html>
